@@ -141,7 +141,7 @@ Puppet::Type.type(:vcsrepo).provide(:git, :parent => Puppet::Provider::Vcsrepo) 
     else
       # normal init
       if @resource.value(:user)
-        su(@resource.value(:user), '-c', "mkdir #{@resource.value(:user)}")
+        su(@resource.value(:user), '-c', "mkdir #{@resource.value(:path)}")
       else
         FileUtils.mkdir(@resource.value(:path))
       end
